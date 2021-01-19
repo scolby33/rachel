@@ -95,13 +95,9 @@ fn main() {
             expression
                 .clone()
                 .permutations(11)
-                .chain(expression.clone().permutations(10))
                 .chain(expression.clone().permutations(9))
-                .chain(expression.clone().permutations(8))
                 .chain(expression.clone().permutations(7))
-                .chain(expression.clone().permutations(6))
                 .chain(expression.clone().permutations(5))
-                .chain(expression.clone().permutations(4))
                 .chain(expression.clone().permutations(3))
                 .par_bridge()
         })
