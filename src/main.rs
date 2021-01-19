@@ -90,7 +90,7 @@ fn main() {
         .take(5)
         .multi_cartesian_product()
         .par_bridge()
-        .flat_map(|operations| {
+        .flat_map_iter(|operations| {
             let expression = numbers.iter().chain(operations);
             expression
                 .clone()
@@ -99,7 +99,6 @@ fn main() {
                 .chain(expression.clone().permutations(7))
                 .chain(expression.clone().permutations(5))
                 .chain(expression.clone().permutations(3))
-                .par_bridge()
         })
         .find_any(|perm| compute(&perm) == target);
 
